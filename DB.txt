@@ -1,6 +1,0 @@
-CREATE TABLE antrian (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nomor INT NOT NULL,
-    status ENUM('menunggu','dipanggil','selesai') DEFAULT 'menunggu',
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
