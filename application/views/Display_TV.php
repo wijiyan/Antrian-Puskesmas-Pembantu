@@ -234,7 +234,28 @@ function cekQueue(){
         }
     });
 }
-setInterval(cekQueue,1000);
+setInterval(cekQueue,800);
+
+function playAudio(file, cb){
+    let a = new Audio(BASE_AUDIO + file);
+    let selesai = false;
+
+    a.play();
+    a.onended = () => {
+        if(!selesai){
+            selesai = true;
+            cb();
+        }
+    };
+
+    setTimeout(() => {
+        if(!selesai){
+            selesai = true;
+            cb();
+        }
+    }, 5000); // fallback
+}
+
 </script>
 
 </body>
