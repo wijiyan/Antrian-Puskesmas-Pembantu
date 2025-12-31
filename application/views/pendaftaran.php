@@ -102,7 +102,7 @@ body {
 <div class="container">
 
     <!-- LOGO -->
-    <div class="logo">
+    <div class="logo" id="fsArea">
         <img src="<?= base_url('assets/logo_puskesmas.png') ?>" alt="Logo Puskesmas">
     </div>
 
@@ -126,7 +126,8 @@ body {
 
 </div>
 
-<!-- <script>
+<!-- Solusi tanpa keluar kertas -->
+<script>
 function ambilAntrian(){
     fetch("<?= base_url('pendaftaran/ambil') ?>")
         .then(res => res.json())
@@ -143,10 +144,10 @@ function ambilAntrian(){
             }
         });
 }
-</script> -->
+</script>
 
 <!-- Solusi Tidak Keluar Kertas -->
-<script>
+<!-- <script>
 function ambilAntrian(){
     fetch("<?= base_url('pendaftaran/ambil') ?>")
         .then(res => res.json())
@@ -164,6 +165,56 @@ function ambilAntrian(){
             }
         });
 }
+</script> -->
+
+<!-- <script>
+function ambilAntrian(){
+    fetch("<?= base_url('pendaftaran/ambil') ?>")
+        .then(res => res.json())
+        .then(data => {
+            if(data.status){
+                document.getElementById('nomor').innerHTML =
+                    "Nomor Antrian Anda: " + data.nomor;
+
+                // 👉 CETAK DI WINDOW BARU
+                window.open(
+                    "<?= base_url('pendaftaran/cetak/') ?>" + data.nomor,
+                    "_blank",
+                    "width=300,height=500"
+                );
+            }
+        });
+}
+</script> -->
+
+<script>
+const fsArea = document.getElementById('fsArea');
+
+fsArea.addEventListener('dblclick', toggleFullscreen);
+
+// Support touchscreen (double tap)
+let lastTap = 0;
+fsArea.addEventListener('touchend', function(e){
+    const now = new Date().getTime();
+    const tapLength = now - lastTap;
+
+    if(tapLength < 300 && tapLength > 0){
+        toggleFullscreen();
+        e.preventDefault();
+    }
+    lastTap = now;
+});
+
+function toggleFullscreen(){
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log("Fullscreen gagal:", err);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
 </script>
+
 </body>
 </html>
