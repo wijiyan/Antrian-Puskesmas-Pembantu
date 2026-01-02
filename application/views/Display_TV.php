@@ -130,7 +130,7 @@ main {
 <header>
     <div class="left">
         <img src="<?= base_url('assets/logo_puskesmas.png') ?>" alt="Logo">
-        <div class="title">PUSKESMAS RAWASARI</div>
+        <div class="title"><?= $this->config->item('puskesmas_nama') ?></div>
     </div>
     <div class="clock" id="clock">--:--</div>
 </header>
@@ -145,10 +145,7 @@ main {
 
 <div class="running">
     <span>
-        Informasi BPJS: Pastikan data kepesertaan aktif • 
-        Bawa KTP & Kartu BPJS • 
-        Datang sesuai jam pelayanan • 
-        Jaga ketertiban & kebersihan
+        <?= $this->config->item('puskesmas_running') ?>
     </span>
 </div>
 

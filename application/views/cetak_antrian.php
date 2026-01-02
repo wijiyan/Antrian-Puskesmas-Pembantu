@@ -72,7 +72,8 @@ body {
 </style>
 </head>
 
-<body onload="window.print(); window.close();">
+<body onload="window.print(); printDanTutup();">
+<!-- <body onload="window.print();"> -->
 
 <!-- LOGO -->
 <div class="logo">
@@ -80,8 +81,8 @@ body {
 </div>
 
 <!-- HEADER -->
-<div class="header">PUSKESMAS RAWASARI</div>
-<div class="subheader">Kota Administrasi Jakarta Pusat</div>
+<div class="header"><?= $this->config->item('puskesmas_nama') ?></div>
+<div class="subheader"><?= $this->config->item('puskesmas_kota') ?></div>
 
 <div class="line"></div>
 
@@ -99,9 +100,16 @@ Jam     : <?= date('H:i') ?> WIB
 <div class="line"></div>
 
 <div class="footer">
-Harap menunggu hingga<br>
-nomor Anda dipanggil
+<?= $this->config->item('puskesmas_footer') ?>
 </div>
 
 </body>
+<script>
+function printDanTutup(){
+    window.print();
+    setTimeout(function(){
+        window.close();
+    }, 500); // 300–1000 ms aman
+}
+</script>
 </html>

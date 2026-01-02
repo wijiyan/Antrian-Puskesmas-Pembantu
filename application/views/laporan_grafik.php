@@ -24,7 +24,7 @@
 <body>
 
 <h1>GRAFIK ANTRIAN HARIAN</h1>
-<strong>Puskesmas Rawasari</strong>
+<strong><?= $this->config->item('puskesmas_nama') ?></strong>
 
 <form method="get" style="margin-top:20px;">
     Tanggal:

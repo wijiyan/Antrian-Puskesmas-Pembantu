@@ -106,7 +106,7 @@ body {
         <img src="<?= base_url('assets/logo_puskesmas.png') ?>" alt="Logo Puskesmas">
     </div>
 
-    <div class="title">PUSKESMAS RAWASARI</div>
+    <div class="title"><?= $this->config->item('puskesmas_nama') ?></div>
     <div class="subtitle">Mesin Antrian Pendaftaran</div>
 
     <!-- TOMBOL AMBIL ANTRIAN -->
@@ -127,7 +127,7 @@ body {
 </div>
 
 <!-- Solusi tanpa keluar kertas -->
-<script>
+<!-- <script>
 function ambilAntrian(){
     fetch("<?= base_url('pendaftaran/ambil') ?>")
         .then(res => res.json())
@@ -144,10 +144,10 @@ function ambilAntrian(){
             }
         });
 }
-</script>
+</script> -->
 
-<!-- Solusi Tidak Keluar Kertas -->
-<!-- <script>
+<!--Solusi Tidak Keluar Kertas -->
+<script>
 function ambilAntrian(){
     fetch("<?= base_url('pendaftaran/ambil') ?>")
         .then(res => res.json())
@@ -165,7 +165,7 @@ function ambilAntrian(){
             }
         });
 }
-</script> -->
+</script>
 
 <!-- <script>
 function ambilAntrian(){
